@@ -81,10 +81,10 @@ def main():
     print('Added public access rule to Security Group ' + public_security_group_name)
 
     user_data = """#!/bin/bash
-                yum update -y
-                yum install httpd24 -y
-                service httpd start
-                chkconfig httpd on
+                sudo yum update -y
+                sudo yum install -y httpd
+                sudo systemctl enable httpd
+                sudo sysemctl start httpd
                 echo "<html><body><h1>Hello from <b>Boto3</b> using Python!</h1></body></html>" > /var/www/html/index.html"""
 
     ami_id = 'ami-1b316af0'
